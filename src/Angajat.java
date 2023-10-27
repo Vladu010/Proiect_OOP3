@@ -2,10 +2,6 @@ import java.util.ArrayList;
 
 public class Angajat extends Client {
 
-
-
-
-
   private int id;
   public int getId() {return id;}
   public void setId(int id) {this.id = id;}
@@ -29,8 +25,8 @@ public class Angajat extends Client {
     super(numeClient, telefonClient, masinaClient);
   }
 
-  public void introducereClient(String numeClient,String telefonClient,Masina masinaClient){
-    clientiAngajat.add(new Client(numeClient,telefonClient,masinaClient));
+  public void introducereClient(Client client){
+    clientiAngajat.add(client);
   }
   public void stergereClient(int idClient){
     clientiAngajat.remove(idClient);
