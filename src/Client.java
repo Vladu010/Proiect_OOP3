@@ -1,4 +1,8 @@
 public class Client {
+    private static int nextId=0;
+    private int idClient;
+    private int getIdClient(){return idClient;}
+    private void setIdClient(int idClient){this.idClient=idClient;}
 
     private String numeClient;
     public String getNumeClient() { return numeClient; }
@@ -14,8 +18,10 @@ public class Client {
 
 
     public Client(String numeClient, String telefonClient, Masina masinaClient){
+        this.idClient=nextId;
         this.masinaClient=masinaClient;
         this.telefonClient=telefonClient;
         this.numeClient=numeClient;
+        nextId++;
     }
 }
