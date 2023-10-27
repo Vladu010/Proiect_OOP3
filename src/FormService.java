@@ -10,10 +10,11 @@ public class FormService {
     private JButton vopsitorieButton;
     private JButton tinichigerieButton;
     private JButton afisareAngajatiButton;
-    private JButton selectareAngajatButton;
+    private JButton inserareAngajatButton;
     private JButton stergereAngajatButton;
     private JButton mutaAngajatButton;
     private JPanel listPanel;
+    private JButton selectareAngajatButton1;
     private int k = -1; // ID departament
 
     public FormService(){
@@ -47,7 +48,7 @@ public class FormService {
         });
 
         afisareAngajatiButton.addActionListener(new ActionListener() {
-            @Override
+            @Override//----------------------------Afisare lista de angajati
             public void actionPerformed(ActionEvent e) {
                 if (k != -1) {
                     DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -62,6 +63,54 @@ public class FormService {
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a department first.");
                 }
+            }
+        });
+
+        inserareAngajatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame formSpital = new JFrame("Inserare Angajat");
+                formSpital.setContentPane(new FormAngajat(k).rootAngajat);
+                formSpital.setSize(400,300);
+                formSpital.setVisible(true);
+                formSpital.setLocationRelativeTo(null);
+            }
+        });
+
+        selectareAngajatButton1.addActionListener(new ActionListener() {
+            @Override//___________________________________________Window de afisare date ale angajatului si lista de clienti pe care ii are
+            public void actionPerformed(ActionEvent e) {
+                String selectedElem = "";
+                int selectedIndices[] = list.getSelectedIndices();
+                int elemID=0;
+                for (int j = 0; j < selectedIndices.length; j++) {
+                    String elem =
+                            (String) list.getModel().getElementAt(selectedIndices[j]);
+                    elemID = selectedIndices[j];
+                    selectedElem += "\n" + elem ;
+                }
+                JFrame formSpital = new JFrame("Afisare Angajat");
+                formSpital.setContentPane(new AfisareAngajat(k,elemID).afisareAngajat);
+                formSpital.setSize(525,215);
+                formSpital.setVisible(true);
+                formSpital.setLocationRelativeTo(null);
+            }
+        });
+
+        stergereAngajatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedElem = "";
+                int selectedIndices[] = list.getSelectedIndices();
+                int elemID=0;
+                for (int j = 0; j < selectedIndices.length; j++) {
+                    String elem =
+                            (String) list.getModel().getElementAt(selectedIndices[j]);
+                    elemID = selectedIndices[j];
+                    selectedElem += "\n" + elem ;
+
+                }
+                Service.getInstance().getDepartamente().get(k).removeAngajatByIndex(elemID);
             }
         });
     }

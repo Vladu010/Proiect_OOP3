@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
 public class Angajat extends Client {
-
+  private static int nextID=0;
   private int id;
-  public int getId() {return id;}
+
+    public int getId() {return id;}
   public void setId(int id) {this.id = id;}
 
   private String numeAngajat;
@@ -14,17 +15,19 @@ public class Angajat extends Client {
   public ArrayList<Client> getClientiAngajat() {return clientiAngajat;}
   public void setClientiAngajat(ArrayList<Client> clientiAngajat) {this.clientiAngajat = clientiAngajat;}
 
-  public Angajat(int id, String numeAngajat, ArrayList<Client> clientiAngajat) {
+  public Angajat( String numeAngajat) {
     super(null,null,null);
-    this.id = id;
+    this.id = nextID;
     this.numeAngajat = numeAngajat;
-    this.clientiAngajat = clientiAngajat;
+    this.clientiAngajat = new ArrayList<Client>();
+    nextID++;
   }
 
   public Angajat(String numeClient, String telefonClient, Masina masinaClient) {
     super(numeClient, telefonClient, masinaClient);
   }
-
+  public int getNumarClienti(){return clientiAngajat.size();}
+  public String toString(){return "ID : " + id + " Nume angajat : " + numeAngajat + " ,numar clienti : " + getNumarClienti();}
   public void introducereClient(Client client){
     clientiAngajat.add(client);
   }

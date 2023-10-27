@@ -17,4 +17,10 @@ public class Departament {
         this.numeDepartament = numeDepartament;
         this.angajatiDepartament = angajatiDepartament;
     }
+    public void addAngajat(String numeAngajat){
+        angajatiDepartament.add(new Angajat(numeAngajat));
+    }
+    public void removeAngajatByIndex(int index) {
+        angajatiDepartament.remove(index);
+    }
 }
