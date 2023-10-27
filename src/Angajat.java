@@ -1,5 +1,6 @@
 public class Angajat {
 
-  ex comit
-  ex 2 
+  public class ex{
+
+  }
 }
