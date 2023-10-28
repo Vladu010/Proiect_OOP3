@@ -67,9 +67,8 @@ public class FormService {
                     listPanel.add(pane, BorderLayout.CENTER);
                     listPanel.revalidate();
 
-                    /*      test baza de date
-
-                    try {
+                    /*
+         SQL           try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection(
                             "jdbc:mysql://localhost:3306/bdmasini", "root", ""

@@ -20,9 +20,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="81892529-aa99-464c-bf1c-14d1a6931f54" object-ref="schemas/bdmasini/tables/masina" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="81892529-aa99-464c-bf1c-14d1a6931f54" dataset="bdmasini.masina" active-filter-id="" />
