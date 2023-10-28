@@ -8,6 +8,5 @@ public class Main {
         rootPanel.setVisible(true);
         rootPanel.setLocationRelativeTo(null);
         rootPanel.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
     }
 }

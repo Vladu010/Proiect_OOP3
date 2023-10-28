@@ -1,3 +1,5 @@
 public interface Automobile {
-    final static double KW = 1.34;
+    static final double KW = 1.34;
+
+
 }

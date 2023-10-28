@@ -13,12 +13,12 @@ public class InsertClient {
     private JButton inserareButton;
     public JPanel inserareClient;
 
-    public InsertClient(int depID, int elemID){
+    public InsertClient(int depID, int elemID) {
         inserareButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Masina carClient = new Masina(serieText.getText(),marcaText.getText(), Integer.parseInt(anText.getText()),tipText.getText());
-                Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(),telefonClient.getText(),carClient));
+                Masina carClient = new Masina(serieText.getText(), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
+                Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
                 numeClient.setText(null);
                 telefonClient.setText(null);
                 serieText.setText(null);
