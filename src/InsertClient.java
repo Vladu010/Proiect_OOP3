@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.IntBuffer;
-
 
 import java.sql.Connection;
 import java.sql.DriverManager;    //biblioteci necesare pt database
@@ -19,13 +17,32 @@ public class InsertClient {
     private JTextField serieText;
     private JButton inserareButton;
     public JPanel inserareClient;
+    private JButton inserareAutobutton;
+
+
+    //inserare manuala
 
     public InsertClient(int depID, int elemID) {
         inserareButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Masina carClient = new Masina(serieText.getText(), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
+                Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
+                numeClient.setText(null);
+                telefonClient.setText(null);
+                serieText.setText(null);
+                marcaText.setText(null);
+                anText.setText(null);
+                tipText.setText(null);
+            }
+        });
 
-                /*
+
+        //auto inserare date masini din bd
+        inserareAutobutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdmasini", "root", "");
@@ -47,29 +64,20 @@ public class InsertClient {
 
 
                     connection.close();
-                } catch (Exception exBD){
+                } catch (Exception exBD) {
                     System.out.println("EROARE BD");
                 }
 
+                //verificare
 
                 for (int i = 0; i < Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().size(); i++) {
                     System.out.println(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().get(i).getMasinaClient().toString());
                 }
 
 
-                 */
-
-                Masina carClient = new Masina(serieText.getText(), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
-                Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
-                numeClient.setText(null);
-                telefonClient.setText(null);
-                serieText.setText(null);
-                marcaText.setText(null);
-                anText.setText(null);
-                tipText.setText(null);
-
-
             }
         });
+
+
     }
 }
