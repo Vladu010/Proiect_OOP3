@@ -67,38 +67,6 @@ public class FormService {
                     listPanel.add(pane, BorderLayout.CENTER);
                     listPanel.revalidate();
 
-                    /*
-         SQL           try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection connection = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/bdmasini", "root", ""
-                    );
-
-                    Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery("select * from masina");
-
-
-                        DefaultListModel<String> listModel = new DefaultListModel<>();
-
-                    while (resultSet.next()) {
-
-                       // System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2) + " " + resultSet.getInt(3) + " " + resultSet.getString(4));
-
-                        listModel.addElement(resultSet.getString(2));
-                        list.setModel(listModel);
-                        listPanel.removeAll();
-                        listPanel.setLayout(new BorderLayout());
-                        listPanel.add(pane, BorderLayout.CENTER);
-                        listPanel.revalidate();
-                    }
-
-                    connection.close();
-                } catch (Exception e2){
-                    System.out.println(e2);
-                }
-
-                    */
-
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a department first.");
                 }

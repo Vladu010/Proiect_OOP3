@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;    //biblioteci necesare pt database
 import java.sql.ResultSet;        //folosim XAMPP pentru a crea legatura intre intellij si mysql
@@ -26,6 +27,23 @@ public class InsertClient {
         inserareButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+/*
+                try {
+
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection connectionUpdate = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdmasini", "root", "");
+
+                    Statement statementUpdate = connectionUpdate.createStatement();
+
+                    String sqlInsert = ("INSERT INTO `masina` (`numeClient`, `nrTelefon`, `seria`, `marca`, `an`, `tip`) VALUES ('ionut', '123456', '106', 'skoda', '2003', 'combi')");
+                    int countInserted = statementUpdate.executeUpdate(sqlInsert);
+
+                    connectionUpdate.close();
+                } catch (Exception exUP) {
+                    System.out.println("Eroare bd update");
+                }
+*/
+
                 Masina carClient = new Masina(Integer.parseInt(serieText.getText()), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
                 Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
                 numeClient.setText(null);
@@ -36,7 +54,6 @@ public class InsertClient {
                 tipText.setText(null);
             }
         });
-
 
         //auto inserare date masini din bd
         inserareAutobutton.addActionListener(new ActionListener() {
@@ -67,16 +84,8 @@ public class InsertClient {
                     System.out.println("EROARE BD");
                 }
 
-                //verificare
-
-                //for (int i = 0; i < Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().size(); i++) {
-                  //  System.out.println(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().get(i).getMasinaClient().toString());
-                //}
-
-
             }
         });
-
 
     }
 }
