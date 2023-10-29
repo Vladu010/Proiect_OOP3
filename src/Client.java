@@ -24,4 +24,16 @@ public class Client {
         this.numeClient=numeClient;
         nextId++;
     }
+
+    public Client(Client copy){
+        this.idClient=copy.idClient;
+        this.masinaClient=copy.masinaClient;
+        this.telefonClient=copy.telefonClient;
+        this.numeClient=copy.numeClient;
+
+    }
+
+    public String toString(){
+        return "ID Client : " +idClient + " , Nume Client : "+ numeClient + " , Masina Client : " + masinaClient;
+    }
 }
