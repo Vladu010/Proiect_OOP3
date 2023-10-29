@@ -26,7 +26,7 @@ public class InsertClient {
         inserareButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Masina carClient = new Masina(serieText.getText(), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
+                Masina carClient = new Masina(Integer.parseInt(serieText.getText()), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
                 Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
                 numeClient.setText(null);
                 telefonClient.setText(null);
@@ -52,8 +52,8 @@ public class InsertClient {
 
                     while (resultSet.next()) {
 
-                        Masina carClient = new Masina(resultSet.getNString(2), resultSet.getString(1), resultSet.getInt(3), resultSet.getNString(4));
-                        Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
+                        Masina carClient = new Masina(resultSet.getInt(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6));
+                        Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(resultSet.getString(1), resultSet.getString(2), carClient));
                         numeClient.setText(null);
                         telefonClient.setText(null);
                         serieText.setText(null);
@@ -62,7 +62,6 @@ public class InsertClient {
                         tipText.setText(null);
                     }
 
-
                     connection.close();
                 } catch (Exception exBD) {
                     System.out.println("EROARE BD");
@@ -70,9 +69,9 @@ public class InsertClient {
 
                 //verificare
 
-                for (int i = 0; i < Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().size(); i++) {
-                    System.out.println(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().get(i).getMasinaClient().toString());
-                }
+                //for (int i = 0; i < Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().size(); i++) {
+                  //  System.out.println(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().get(i).getMasinaClient().toString());
+                //}
 
 
             }

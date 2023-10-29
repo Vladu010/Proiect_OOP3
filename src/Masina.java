@@ -1,7 +1,7 @@
 public class Masina implements Automobile{
 
-    private String seria;
-    public String getSeria() { return seria; }
+    private int seria;
+    public int getSeria() { return seria; }
 
     private String marca;
     public String getMarca() { return marca; }
@@ -12,7 +12,7 @@ public class Masina implements Automobile{
     private String tip;
     public String getTip() { return tip; }
 
-    public Masina(String seria, String marca, int an, String tip)
+    public Masina(int seria, String marca, int an, String tip)
     {
         this.marca=marca;
         this.seria=seria;

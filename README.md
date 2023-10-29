@@ -3,4 +3,4 @@
 descriere proiect, documentatie
 
 
--seria trebuie sa fie int !
+-seria trebuie sa fie int ! 
