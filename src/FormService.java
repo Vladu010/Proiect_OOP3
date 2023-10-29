@@ -78,9 +78,10 @@ public class FormService {
             public void actionPerformed(ActionEvent e) {
                 JFrame formSpital = new JFrame("Inserare Angajat");
                 formSpital.setContentPane(new FormAngajat(k).rootAngajat);
-                formSpital.setSize(400,300);
+                formSpital.setSize(350,150);
                 formSpital.setVisible(true);
                 formSpital.setLocationRelativeTo(null);
+                afisareAngajatiButton.doClick();
             }
         });
 
@@ -118,6 +119,30 @@ public class FormService {
 
                 }
                 Service.getInstance().getDepartamente().get(k).removeAngajatByIndex(elemID);
+                afisareAngajatiButton.doClick();
+            }
+        });
+        mutaAngajatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedElem = "";
+                int selectedIndices[] = list.getSelectedIndices();
+                int angajatId=-1;
+                for (int j = 0; j < selectedIndices.length; j++) {
+                    String elem =
+                            (String) list.getModel().getElementAt(selectedIndices[j]);
+                    angajatId = selectedIndices[j];
+                    selectedElem += "\n" + elem ;
+                }
+                JFrame formSpital = new JFrame("Introducere ID");
+                formSpital.setContentPane(new FormMove().panel1);
+                formSpital.setSize(200,215);
+                formSpital.setVisible(true);
+                formSpital.setLocationRelativeTo(null);
+                Angajat copy= new Angajat(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().get(angajatId));
+                Service.getInstance().getDepartamente().get(ID.getInstance().getId()).getAngajatiDepartament().add(copy);
+                stergereAngajatButton.doClick();
+
             }
         });
     }

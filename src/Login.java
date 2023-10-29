@@ -33,7 +33,7 @@ public class Login {
                     //---------------Opens Service Frame
                     JFrame rootPanel = new JFrame("Service");
                     rootPanel.setContentPane(new FormService().rootPanel);
-                    rootPanel.setSize(600, 300);
+                    rootPanel.setSize(850, 250);
                     rootPanel.setVisible(true);
                     rootPanel.setLocationRelativeTo(null);
                     rootPanel.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
