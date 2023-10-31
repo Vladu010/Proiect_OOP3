@@ -1,6 +1,31 @@
-# Proiect_OOP3
+# Proiect_OOP3 Service Auto
 
-descriere proiect, documentatie
+Aplicatie de management Service Auto
 
+Vlad Pitariu & Trif Paul
 
--seria trebuie sa fie int ! 
+Prin aceasta aplicatie dorim sa usuram managementul unui service auto prin:
+-gestionarea angajatilor
+-gestionarea clientilor
+-introducerea de date si stergerea lor
+-stocarea de date persistente
+-comunicarea cu o baza de date
+
+# Componente
+
+Clase
+- Clasa Angajat
+- Clasa Client
+- Clasa Departament
+- CLasa ID
+- Clasa Main
+- Clasa Masina
+- Clasa Service
+
+  Componente Grafice
+  -Login
+  -Insert Client
+  -Service
+  -Move
+  -Angajat
+  -Afisare Angajat
