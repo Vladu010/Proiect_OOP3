@@ -1,5 +1,6 @@
 public class Client {
-    private static int nextId=0;
+    //------------------------------------atribute
+    private static int nextId=0;//incrementare ID
     private int idClient;
     private int getIdClient(){return idClient;}
     private void setIdClient(int idClient){this.idClient=idClient;}
@@ -16,7 +17,7 @@ public class Client {
     public Masina getMasinaClient() { return masinaClient; }
     public void setMasinaClient(Masina masinaClient) { this.masinaClient = masinaClient; }
 
-
+//--------------------------------------Constructori
     public Client(String numeClient, String telefonClient, Masina masinaClient){
         this.idClient=nextId;
         this.masinaClient=masinaClient;
@@ -32,7 +33,7 @@ public class Client {
         this.numeClient=copy.numeClient;
 
     }
-
+//--------------------------------------Metode
     public String toString(){
         return "ID Client : " +idClient + " , Nume Client : "+ numeClient + " , Masina Client : " + masinaClient;
     }

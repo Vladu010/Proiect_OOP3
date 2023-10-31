@@ -22,6 +22,13 @@ public class Angajat extends Masina {
     this.clientiAngajat = new ArrayList<Client>();
     nextID++;
   }
+  public Angajat( String numeAngajat) {
+    super(0,null,0,null);
+    this.id = nextID;
+    this.numeAngajat = numeAngajat;
+    this.clientiAngajat = new ArrayList<Client>();
+    nextID++;
+  }
   public Angajat( Angajat copy) {
     super(copy.getSeria(),copy.getMarca(),copy.getAn(),copy.getTip());
     this.id =copy.id;

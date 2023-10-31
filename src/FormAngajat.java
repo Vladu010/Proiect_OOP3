@@ -19,12 +19,13 @@ public class FormAngajat {
                     if (numeAngajatText.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(rootAngajat,
                                 "Date incomplete");
-                    } else {
-                        Service.getInstance().getDepartamente().get(depID).addAngajat(numeAngajatText.getText(), new Masina(Integer.parseInt(serieAngajat.getText()),marcaAngajat.getText(),Integer.parseInt(anAngajat.getText()),tipAngajat.getText()));
+                    } else if(serieAngajat.getText().isEmpty()&& marcaAngajat.getText().isEmpty()&&anAngajat.getText().isEmpty()&&tipAngajat.getText().isEmpty()){
+                        Service.getInstance().getDepartamente().get(depID).addAngajat(numeAngajatText.getText(),null);
                         numeAngajatText.setText(null);
 
+                    }else {
+                        Service.getInstance().getDepartamente().get(depID).addAngajat(numeAngajatText.getText(), new Masina(Integer.parseInt(serieAngajat.getText()), marcaAngajat.getText(), Integer.parseInt(anAngajat.getText()), tipAngajat.getText()));
                     }
-
 
             }
 

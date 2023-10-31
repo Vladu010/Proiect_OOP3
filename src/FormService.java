@@ -78,7 +78,7 @@ public class FormService {
             public void actionPerformed(ActionEvent e) {
                 JFrame formSpital = new JFrame("Inserare Angajat");
                 formSpital.setContentPane(new FormAngajat(k).rootAngajat);
-                formSpital.setSize(350,150);
+                formSpital.setSize(450,170);
                 formSpital.setVisible(true);
                 formSpital.setLocationRelativeTo(null);
                 afisareAngajatiButton.doClick();

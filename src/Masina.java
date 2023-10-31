@@ -1,5 +1,5 @@
 public class Masina implements Automobile{
-
+//-----------------------------------Atribute
     private int seria;
     public int getSeria() { return seria; }
 
@@ -13,7 +13,7 @@ public class Masina implements Automobile{
     public String getTip() { return tip; }
 
     private boolean status;
-
+//-------------------------------------------------Constructori
     public Masina(int seria, String marca, int an, String tip)
     {
         this.marca=marca;
@@ -22,7 +22,7 @@ public class Masina implements Automobile{
         this.tip=tip;
         this.status = false;
     }
-
+//-------------------------------------------------Metode
     public String toString() { return seria + " " + marca + " " + an + " " + tip; }
 
     @Override
