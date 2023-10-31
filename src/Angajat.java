@@ -15,15 +15,15 @@ public class Angajat extends Masina {
   public ArrayList<Client> getClientiAngajat() {return clientiAngajat;}
   public void setClientiAngajat(ArrayList<Client> clientiAngajat) {this.clientiAngajat = clientiAngajat;}
 //----------------------------Constructori
-  public Angajat( String numeAngajat) {
-    super(0,null,0,null);
+  public Angajat( String numeAngajat, Masina car) {
+    super(car.getSeria(),car.getMarca(),car.getAn(),car.getTip());
     this.id = nextID;
     this.numeAngajat = numeAngajat;
     this.clientiAngajat = new ArrayList<Client>();
     nextID++;
   }
   public Angajat( Angajat copy) {
-    super(0,null,0,null);
+    super(copy.getSeria(),copy.getMarca(),copy.getAn(),copy.getTip());
     this.id =copy.id;
     this.numeAngajat =copy.numeAngajat;
     this.clientiAngajat =copy.getClientiAngajat();
