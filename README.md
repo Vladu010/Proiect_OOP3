@@ -11,9 +11,8 @@ Prin aceasta aplicatie dorim sa usuram managementul unui service auto prin:
 -stocarea de date persistente
 -comunicarea cu o baza de date
 
-# Componente
 
-Clase
+# Clase
 - Clasa Angajat
 - Clasa Client
 - Clasa Departament
@@ -22,10 +21,11 @@ Clase
 - Clasa Masina
 - Clasa Service
 
-  Componente Grafice
-  -Login
-  -Insert Client
-  -Service
-  -Move
-  -Angajat
-  -Afisare Angajat
+# Componente Grafice
+- Login
+- Insert Client
+- Service
+- Move
+- Angajat
+- Afisare Angajat
+
