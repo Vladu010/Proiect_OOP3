@@ -7,7 +7,7 @@ import java.sql.DriverManager;    //biblioteci necesare pt database
 import java.sql.ResultSet;        //folosim XAMPP pentru a crea legatura intre intellij si mysql
 import java.sql.Statement;
 
-import java.io.FileWriter;
+import java.io.FileWriter;      //fisiere
 import java.io.IOException;
 
 public class InsertClient {
@@ -20,7 +20,6 @@ public class InsertClient {
     private JButton inserareButton;
     public JPanel inserareClient;
     private JButton inserareAutobutton;
-
 
     //inserare manuala
 
@@ -45,6 +44,10 @@ public class InsertClient {
 
                 } catch (Exception eINT) {
                     System.out.println("EROARE TIP INTRARE");
+                    JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
+                            "Nu ati introdus datele corect !",
+                            "Eroare Date",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -67,14 +70,13 @@ public class InsertClient {
                         Masina carClient = new Masina(resultSet.getInt(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6));
                         Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(resultSet.getString(1), resultSet.getString(2), carClient));
 
-
                         //scriere in fisier
-
 
                         try {
                             FileWriter myWriter = new FileWriter("clienti.txt");
+                            myWriter = new FileWriter("clienti.txt");
                             myWriter.write(resultSet.getString(1) + " " + resultSet.getString(2) + " " + resultSet.getInt(3) + " " + resultSet.getString(4) + " " + resultSet.getInt(5) + " " +resultSet.getString(6));
-                            myWriter.close();
+                            myWriter.close();  //!!
                             System.out.println("Successfully wrote to the file.");
                         } catch (IOException eWrite) {
                             System.out.println("ERROR WRITE");
@@ -95,4 +97,5 @@ public class InsertClient {
             }
         });
     }
+
 }
