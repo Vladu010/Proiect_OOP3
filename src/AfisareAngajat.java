@@ -70,8 +70,9 @@ public class AfisareAngajat {
 
             }
         });
-
+        try{
         mutaClientButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedElem = "";
@@ -88,10 +89,18 @@ public class AfisareAngajat {
                 formSpital.setSize(200,215);
                 formSpital.setVisible(true);
                 formSpital.setLocationRelativeTo(null);
+                if(ID.getInstance().getId()!=-1){
                 Client copy= new Client(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().get(clientId));
                 Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(ID.getInstance().getId()).getClientiAngajat().add(copy);
-                stergereClientButton.doClick();
+                stergereClientButton.doClick();}
+                else {};
+
             }
+
         });
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Eroare mutare !");
+        }
     }
 }

@@ -1,5 +1,5 @@
 public class ID {
-    private int id;
+    private int id=-1;
     private static ID instance;
 
     public static ID getInstance() {

@@ -12,10 +12,13 @@ public class FormMove  {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //else {JOptionPane.showMessageDialog(null, "ID introdus gresit");}
                 ID.getInstance().setId(Integer.parseInt(textField1.getText()));
+                System.out.println(textField1.getText());
             }
         });
 
+        }
 
     }
-}
+
