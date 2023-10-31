@@ -28,7 +28,13 @@ public class InsertClient {
         inserareButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Masina carClient = new Masina(Integer.parseInt(serieText.getText()), marcaText.getText(), Integer.parseInt(anText.getText()), tipText.getText());
+
+                //validare date inserare manuala client
+                try {
+                    int serieAUX = Integer.parseInt(serieText.getText());
+                    int anAUX = Integer.parseInt(anText.getText());
+
+                Masina carClient = new Masina(serieAUX, marcaText.getText(), anAUX, tipText.getText());
                 Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(numeClient.getText(), telefonClient.getText(), carClient));
                 numeClient.setText(null);
                 telefonClient.setText(null);
@@ -36,6 +42,10 @@ public class InsertClient {
                 marcaText.setText(null);
                 anText.setText(null);
                 tipText.setText(null);
+
+                } catch (Exception eINT) {
+                    System.out.println("EROARE TIP INTRARE");
+                }
             }
         });
 
