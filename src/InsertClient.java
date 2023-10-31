@@ -7,8 +7,13 @@ import java.sql.DriverManager;    //biblioteci necesare pt database
 import java.sql.ResultSet;        //folosim XAMPP pentru a crea legatura intre intellij si mysql
 import java.sql.Statement;
 
-import java.io.FileWriter;      //fisiere
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;           //fisiere
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 
 public class InsertClient {
     private JTextField numeClient;
@@ -60,7 +65,7 @@ public class InsertClient {
 
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");                                 //nume bd
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbmasini", "root", "");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdmasini", "root", "");
 
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery("select * from masina");
@@ -70,17 +75,18 @@ public class InsertClient {
                         Masina carClient = new Masina(resultSet.getInt(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6));
                         Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).introducereClient(new Client(resultSet.getString(1), resultSet.getString(2), carClient));
 
-                        //scriere in fisier
+                  /*      //scriere in fisier
 
                         try {
                             FileWriter myWriter = new FileWriter("clienti.txt");
-                            myWriter = new FileWriter("clienti.txt");
+                         //   myWriter = new FileWriter("clienti.txt");
                             myWriter.write(resultSet.getString(1) + " " + resultSet.getString(2) + " " + resultSet.getInt(3) + " " + resultSet.getString(4) + " " + resultSet.getInt(5) + " " +resultSet.getString(6));
                             myWriter.close();  //!!
                             System.out.println("Successfully wrote to the file.");
                         } catch (IOException eWrite) {
                             System.out.println("ERROR WRITE");
                         }
+                */
 
                         numeClient.setText(null);
                         telefonClient.setText(null);
