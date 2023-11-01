@@ -26,11 +26,11 @@ public class AfisareAngajat {
         inserareClientButton.addActionListener(new ActionListener() {
             @Override//-----------------------------Window pt inserare client, apeleaza form Inseare CLient
             public void actionPerformed(ActionEvent e) {
-                JFrame formSpital = new JFrame("Introducere ServiceP.Client");
-                formSpital.setContentPane(new InsertClient(depID,elemID).inserareClient);
-                formSpital.setSize(525,215);
-                formSpital.setVisible(true);
-                formSpital.setLocationRelativeTo(null);
+                JFrame frame = new JFrame("Introducere Client");
+                frame.setContentPane(new InsertClient(depID,elemID).inserareClient);
+                frame.setSize(525,215);
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
                 statusClientButton.doClick();
 
             }
