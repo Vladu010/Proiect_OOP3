@@ -18,8 +18,8 @@ public class Login {
     public Login() {
 
         BufferedImage bufferedImage;
-        try {
-            bufferedImage = ImageIO.read(new File("C:\\Users\\Administrator\\IdeaProjects\\Proiect3\\logo.png"));
+        try {                                                            //nume
+            bufferedImage = ImageIO.read(new File("C:\\Users\\paul_\\IdeaProjects\\Proiect_OOP3\\logo.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
