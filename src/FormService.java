@@ -90,11 +90,11 @@ public class FormService {
         inserareAngajatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame formSpital = new JFrame("Inserare ServiceP.Angajat");
-                formSpital.setContentPane(new FormAngajat(k).rootAngajat);
-                formSpital.setSize(450,200);
-                formSpital.setVisible(true);
-                formSpital.setLocationRelativeTo(null);
+                JFrame frame = new JFrame("Inserare ServiceP.Angajat");
+                frame.setContentPane(new FormAngajat(k).rootAngajat);
+                frame.setSize(450,200);
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
                 afisareAngajatiButton.doClick();
             }
         });
@@ -111,11 +111,11 @@ public class FormService {
                     elemID = selectedIndices[j];
                     selectedElem += "\n" + elem ;
                 }
-                JFrame formSpital = new JFrame("Afisare ServiceP.Angajat");
-                formSpital.setContentPane(new AfisareAngajat(k,elemID).afisareAngajat);
-                formSpital.setSize(525,215);
-                formSpital.setVisible(true);
-                formSpital.setLocationRelativeTo(null);
+                JFrame frame = new JFrame("Afisare Angajat");
+                frame.setContentPane(new AfisareAngajat(k,elemID).afisareAngajat);
+                frame.setSize(525,215);
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
             }
         });
 
