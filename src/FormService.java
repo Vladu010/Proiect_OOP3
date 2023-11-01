@@ -29,8 +29,8 @@ public class FormService {
 
     public FormService(){
         BufferedImage bufferedImage;
-        try {
-            bufferedImage = ImageIO.read(new File("C:\\Users\\Administrator\\IdeaProjects\\Proiect3\\asd.png"));
+        try {                                                           //nume
+            bufferedImage = ImageIO.read(new File("C:\\Users\\paul_\\IdeaProjects\\Proiect_OOP3\\asd.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

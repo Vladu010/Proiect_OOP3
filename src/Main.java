@@ -12,7 +12,4 @@ public class Main {
     }
 }
 
-
-//pachet de service
-//angajat fara masina
 // muta client - eroarea
