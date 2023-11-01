@@ -98,27 +98,28 @@ public class FormService {
                 afisareAngajatiButton.doClick();
             }
         });
-
-        selectareAngajatButton1.addActionListener(new ActionListener() {
-            @Override//___________________________________________Window de afisare date ale angajatului si lista de clienti pe care ii are
-            public void actionPerformed(ActionEvent e) {
-                String selectedElem = "";
-                int selectedIndices[] = list.getSelectedIndices();
-                int elemID=0;
-                for (int j = 0; j < selectedIndices.length; j++) {
-                    String elem =
-                            (String) list.getModel().getElementAt(selectedIndices[j]);
-                    elemID = selectedIndices[j];
-                    selectedElem += "\n" + elem ;
+            selectareAngajatButton1.addActionListener(new ActionListener() {
+                @Override
+//___________________________________________Window de afisare date ale angajatului si lista de clienti pe care ii are
+                public void actionPerformed(ActionEvent e) {
+                    if(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().isEmpty()){
+                    String selectedElem = "";
+                    int selectedIndices[] = list.getSelectedIndices();
+                    int elemID = 0;
+                    for (int j = 0; j < selectedIndices.length; j++) {
+                        String elem =
+                                (String) list.getModel().getElementAt(selectedIndices[j]);
+                        elemID = selectedIndices[j];
+                        selectedElem += "\n" + elem;
+                    }
+                    JFrame frame = new JFrame("Afisare Angajat");
+                    frame.setContentPane(new AfisareAngajat(k, elemID).afisareAngajat);
+                    frame.setSize(525, 215);
+                    frame.setVisible(true);
+                    frame.setLocationRelativeTo(null);
                 }
-                JFrame frame = new JFrame("Afisare Angajat");
-                frame.setContentPane(new AfisareAngajat(k,elemID).afisareAngajat);
-                frame.setSize(525,215);
-                frame.setVisible(true);
-                frame.setLocationRelativeTo(null);
-            }
-        });
-
+                else{JOptionPane.showMessageDialog(null, "Worker invalid");}
+            }});
         stergereAngajatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -91,7 +91,6 @@ public class AfisareAngajat {
                 formMoveClient.setSize(200,215);
                 formMoveClient.setVisible(true);
                 formMoveClient.setLocationRelativeTo(null);
-
             }
 
         });

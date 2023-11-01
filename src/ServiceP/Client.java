@@ -37,6 +37,6 @@ public class Client {
     }
 //--------------------------------------Metode
     public String toString(){
-        return "ID ServiceP.Client : " +idClient + " , Nume ServiceP.Client : "+ numeClient + " , ServiceP.Masina ServiceP.Client : " + masinaClient + " "+ getMasinaClient().statusVehicul();
+        return "ID : " +idClient + " , Nume : "+ numeClient + " , Masina  : " + masinaClient + " "+ "stare : " +getMasinaClient().statusVehicul();
     }
 }

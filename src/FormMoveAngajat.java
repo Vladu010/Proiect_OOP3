@@ -12,7 +12,6 @@ public class FormMoveAngajat  {
     private JButton button1;
 
     public FormMoveAngajat(int depID, int angajatID, int clientID){
-
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -23,7 +22,7 @@ public class FormMoveAngajat  {
                     Client copy= new Client(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(angajatID).getClientiAngajat().get(clientID));
                     Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(ID.getInstance().getId()).getClientiAngajat().add(copy);
                     Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(angajatID).getClientiAngajat().remove(clientID);
-                    // ID.getInstance().setOk(true); ----------------Validare stergere
+                     //ID.getInstance().setOk(true);// ----------------Validare stergere
                     // System.out.println(ID.getInstance().isOk());
 
                 }
