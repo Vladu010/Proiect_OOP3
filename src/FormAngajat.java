@@ -25,6 +25,11 @@ public class FormAngajat {
 
                     }else {
                         Service.getInstance().getDepartamente().get(depID).addAngajat(numeAngajatText.getText(), new Masina(Integer.parseInt(serieAngajat.getText()), marcaAngajat.getText(), Integer.parseInt(anAngajat.getText()), tipAngajat.getText()));
+                        numeAngajatText.setText(null);
+                        anAngajat.setText(null);
+                        serieAngajat.setText(null);
+                        tipAngajat.setText(null);
+                        marcaAngajat.setText(null);
                     }
 
             }
