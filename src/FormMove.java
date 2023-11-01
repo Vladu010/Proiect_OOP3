@@ -21,7 +21,7 @@ public class FormMove  {
                 System.out.println(textField1.getText());
                 Angajat copy= new Angajat(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().get(angajatId));
                 Service.getInstance().getDepartamente().get(ID.getInstance().getId()).getAngajatiDepartament().add(copy);
-                //Service.getInstance().getDepartamente().get(k).removeAngajatByIndex(angajatId);
+                Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().remove(angajatId);
                // ID.getInstance().setOk(true);// ----------------Validare stergere
                // System.out.println(ID.getInstance().isOk());
 

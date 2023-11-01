@@ -61,7 +61,7 @@ public class InsertClient {
 
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");                                 //nume bd
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbmasini", "root", "");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdmasini", "root", "");
 
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery("select * from masina");

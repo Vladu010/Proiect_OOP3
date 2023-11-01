@@ -29,7 +29,7 @@ public class FormService {
 
     public FormService(){
         BufferedImage bufferedImage;
-        try {
+        try {                                                           //nume
             bufferedImage = ImageIO.read(new File("C:\\Users\\Administrator\\IdeaProjects\\Proiect3\\asd.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -102,7 +102,7 @@ public class FormService {
                 @Override
 //___________________________________________Window de afisare date ale angajatului si lista de clienti pe care ii are
                 public void actionPerformed(ActionEvent e) {
-                    if(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().isEmpty()){
+                  //  if(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().isEmpty()){
                     String selectedElem = "";
                     int selectedIndices[] = list.getSelectedIndices();
                     int elemID = 0;
@@ -117,8 +117,8 @@ public class FormService {
                     frame.setSize(525, 215);
                     frame.setVisible(true);
                     frame.setLocationRelativeTo(null);
-                }
-                else{JOptionPane.showMessageDialog(null, "Worker invalid");}
+                //}
+                //else{JOptionPane.showMessageDialog(null, "Worker invalid");}
             }});
         stergereAngajatButton.addActionListener(new ActionListener() {
             @Override
