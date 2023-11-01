@@ -1,3 +1,5 @@
+package ServiceP;
+
 public interface Automobile {
     default void reparatieVehicul() {
         setStatus(true);

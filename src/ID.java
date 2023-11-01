@@ -1,5 +1,6 @@
 public class ID {
     private int id=-1;
+    private boolean ok = false;
     private static ID instance;
 
     public static ID getInstance() {
@@ -16,4 +17,6 @@ public class ID {
     public void setId(int newId) {
         this.id=newId;
     }
+    public boolean isOk(){return ok;}
+    public void setOk(boolean ok){this.ok=ok;}
 }

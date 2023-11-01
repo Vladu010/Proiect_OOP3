@@ -1,6 +1,6 @@
-# Proiect_OOP3 Service Auto
+# Proiect_OOP3 ServiceP.Service Auto
 
-Aplicatie de management Service Auto
+Aplicatie de management ServiceP.Service Auto
 
 Vlad Pitariu & Trif Paul
 
@@ -14,19 +14,19 @@ Prin aceasta aplicatie dorim sa usuram managementul unui service auto prin:
 
 
 # Clase
-- Clasa Angajat
-- Clasa Client
-- Clasa Departament
+- Clasa ServiceP.Angajat
+- Clasa ServiceP.Client
+- Clasa ServiceP.Departament
 - CLasa ID
 - Clasa Main
-- Clasa Masina
-- Clasa Service
+- Clasa ServiceP.Masina
+- Clasa ServiceP.Service
 
 # Componente Grafice
 - Login
-- Insert Client
-- Service
+- Insert ServiceP.Client
+- ServiceP.Service
 - Move
-- Angajat
-- Afisare Angajat
+- ServiceP.Angajat
+- Afisare ServiceP.Angajat
 

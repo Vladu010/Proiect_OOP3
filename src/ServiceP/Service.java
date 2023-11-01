@@ -1,3 +1,5 @@
+package ServiceP;
+
 import java.util.ArrayList;
 
 public class Service {
@@ -7,7 +9,7 @@ public class Service {
 
     private Service() {
         this.departamente = new ArrayList<>();
-        this.name = "Default Service Name";
+        this.name = "Default ServiceP.Service Name";
     }
 
     public static Service getInstance() {

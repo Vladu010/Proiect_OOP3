@@ -1,7 +1,9 @@
+package ServiceP;
+
 import java.util.ArrayList;
 
 public class Angajat extends Masina {
-  //-------------------------Atributele clasei Angajat
+  //-------------------------Atributele clasei ServiceP.Angajat
   private static int nextID=0;
   private int id;
   public int getId() {return id;}

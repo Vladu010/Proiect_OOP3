@@ -1,5 +1,7 @@
+import ServiceP.Client;
+import ServiceP.Service;
+
 import javax.swing.*;
-import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +26,7 @@ public class AfisareAngajat {
         inserareClientButton.addActionListener(new ActionListener() {
             @Override//-----------------------------Window pt inserare client, apeleaza form Inseare CLient
             public void actionPerformed(ActionEvent e) {
-                JFrame formSpital = new JFrame("Introducere Client");
+                JFrame formSpital = new JFrame("Introducere ServiceP.Client");
                 formSpital.setContentPane(new InsertClient(depID,elemID).inserareClient);
                 formSpital.setSize(525,215);
                 formSpital.setVisible(true);
@@ -84,16 +86,11 @@ public class AfisareAngajat {
                     clientId = selectedIndices[j];
                     selectedElem += "\n" + elem ;
                 }
-                JFrame formSpital = new JFrame("Introducere ID");
-                formSpital.setContentPane(new FormMove().panel1);
-                formSpital.setSize(200,215);
-                formSpital.setVisible(true);
-                formSpital.setLocationRelativeTo(null);
-                if(ID.getInstance().getId()!=-1){
-                Client copy= new Client(Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().get(clientId));
-                Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(ID.getInstance().getId()).getClientiAngajat().add(copy);
-                stergereClientButton.doClick();}
-                else {};
+                JFrame formMoveClient = new JFrame("Introducere ID");
+                formMoveClient.setContentPane(new FormMoveAngajat(depID,elemID,clientId).panel1);
+                formMoveClient.setSize(200,215);
+                formMoveClient.setVisible(true);
+                formMoveClient.setLocationRelativeTo(null);
 
             }
 

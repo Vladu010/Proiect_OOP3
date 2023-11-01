@@ -1,13 +1,17 @@
+import ServiceP.Angajat;
+import ServiceP.Departament;
+import ServiceP.Service;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
-import java.sql.Connection;
-import java.sql.DriverManager;    //biblioteci necesare pt database
-import java.sql.ResultSet;        //folosim XAMPP pentru a crea legatura intre intellij si mysql
-import java.sql.Statement;
 
 public class FormService {
     public JPanel rootPanel;
@@ -20,9 +24,19 @@ public class FormService {
     private JButton mutaAngajatButton;
     private JPanel listPanel;
     private JButton selectareAngajatButton1;
+    private JLabel LabelPic;
     private int k = -1; // ID departament
 
     public FormService(){
+        BufferedImage bufferedImage;
+        try {
+            bufferedImage = ImageIO.read(new File("C:\\Users\\Administrator\\IdeaProjects\\Proiect3\\asd.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Image image = bufferedImage.getScaledInstance(800, 400, Image.SCALE_DEFAULT);
+        ImageIcon icon = new ImageIcon(image);
+        LabelPic.setIcon(icon);
         Service.getInstance().addDepartment(new Departament(0,"Vopsitorie",new ArrayList<Angajat>()));
         Service.getInstance().addDepartment(new Departament(1,"Tinichigerie",new ArrayList<Angajat>()));
         Service.getInstance().addDepartment(new Departament(2,"Mecanica",new ArrayList<Angajat>()));
@@ -48,7 +62,7 @@ public class FormService {
         mecanicaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                k =Service.getInstance().getDepartamente().get(2).getIdDepartament();
+                k = Service.getInstance().getDepartamente().get(2).getIdDepartament();
             }
         });
 
@@ -76,9 +90,9 @@ public class FormService {
         inserareAngajatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame formSpital = new JFrame("Inserare Angajat");
+                JFrame formSpital = new JFrame("Inserare ServiceP.Angajat");
                 formSpital.setContentPane(new FormAngajat(k).rootAngajat);
-                formSpital.setSize(450,170);
+                formSpital.setSize(450,200);
                 formSpital.setVisible(true);
                 formSpital.setLocationRelativeTo(null);
                 afisareAngajatiButton.doClick();
@@ -97,7 +111,7 @@ public class FormService {
                     elemID = selectedIndices[j];
                     selectedElem += "\n" + elem ;
                 }
-                JFrame formSpital = new JFrame("Afisare Angajat");
+                JFrame formSpital = new JFrame("Afisare ServiceP.Angajat");
                 formSpital.setContentPane(new AfisareAngajat(k,elemID).afisareAngajat);
                 formSpital.setSize(525,215);
                 formSpital.setVisible(true);
@@ -127,21 +141,18 @@ public class FormService {
             public void actionPerformed(ActionEvent e) {
                 String selectedElem = "";
                 int selectedIndices[] = list.getSelectedIndices();
-                int angajatId=-1;
+                int angajatId = -1;
                 for (int j = 0; j < selectedIndices.length; j++) {
                     String elem =
                             (String) list.getModel().getElementAt(selectedIndices[j]);
                     angajatId = selectedIndices[j];
-                    selectedElem += "\n" + elem ;
+                    selectedElem += "\n" + elem;
                 }
-                JFrame formSpital = new JFrame("Introducere ID");
-                formSpital.setContentPane(new FormMove().panel1);
-                formSpital.setSize(200,215);
-                formSpital.setVisible(true);
-                formSpital.setLocationRelativeTo(null);
-                Angajat copy= new Angajat(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().get(angajatId));
-                Service.getInstance().getDepartamente().get(ID.getInstance().getId()).getAngajatiDepartament().add(copy);
-                stergereAngajatButton.doClick();
+                JFrame formMove = new JFrame("Introducere ID");
+                formMove.setContentPane(new FormMove(k, angajatId).panel1);
+                formMove.setSize(200, 215);
+                formMove.setVisible(true);
+                formMove.setLocationRelativeTo(null);
 
             }
         });

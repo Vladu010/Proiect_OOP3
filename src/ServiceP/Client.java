@@ -1,3 +1,5 @@
+package ServiceP;
+
 public class Client {
     //------------------------------------atribute
     private static int nextId=0;//incrementare ID
@@ -35,6 +37,6 @@ public class Client {
     }
 //--------------------------------------Metode
     public String toString(){
-        return "ID Client : " +idClient + " , Nume Client : "+ numeClient + " , Masina Client : " + masinaClient;
+        return "ID ServiceP.Client : " +idClient + " , Nume ServiceP.Client : "+ numeClient + " , ServiceP.Masina ServiceP.Client : " + masinaClient + " "+ getMasinaClient().statusVehicul();
     }
 }

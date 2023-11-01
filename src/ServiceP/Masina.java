@@ -1,3 +1,5 @@
+package ServiceP;
+
 public class Masina implements Automobile{
 //-----------------------------------Atribute
     private int seria;
