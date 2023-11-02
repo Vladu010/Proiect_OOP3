@@ -1,8 +1,9 @@
 package ServiceP;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Service {
+public class Service implements Serializable {
     private static Service instance;  // Singleton instance
     private ArrayList<Departament> departamente;
     private String name;
@@ -15,6 +16,12 @@ public class Service {
     public static Service getInstance() {
         if (instance == null) {
             instance = new Service();
+        }
+        return instance;
+    }
+    public static Service getInstance(Service p){
+        if (instance == null) {
+            instance = p;
         }
         return instance;
     }

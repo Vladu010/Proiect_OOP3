@@ -28,6 +28,7 @@ public class FormService {
     private int k = -1; // ID departament
 
     public FormService(){
+
         BufferedImage bufferedImage;
         try {                                                           //nume
             bufferedImage = ImageIO.read(new File("C:\\Users\\Administrator\\IdeaProjects\\Proiect3\\asd.png"));
