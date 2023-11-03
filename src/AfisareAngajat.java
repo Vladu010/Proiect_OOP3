@@ -57,19 +57,22 @@ public class AfisareAngajat {
         stergereClientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String selectedElem = "";
-                int selectedIndices[] = list.getSelectedIndices();
-                int stergereId=-1;
-                for (int j = 0; j < selectedIndices.length; j++) {
-                    String elem =
-                            (String) list.getModel().getElementAt(selectedIndices[j]);
-                    stergereId = selectedIndices[j];
-                    selectedElem += "\n" + elem ;
+                try {
+                    String selectedElem = "";
+                    int selectedIndices[] = list.getSelectedIndices();
+                    int stergereId = -1;
+                    for (int j = 0; j < selectedIndices.length; j++) {
+                        String elem =
+                                (String) list.getModel().getElementAt(selectedIndices[j]);
+                        stergereId = selectedIndices[j];
+                        selectedElem += "\n" + elem;
+                    }
+                    Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().remove(stergereId);
+                    statusClientButton.doClick();
+
+                }catch(Exception exStergere){
+                    JOptionPane.showMessageDialog(null, "Eroare stergere !");
                 }
-                Service.getInstance().getDepartamente().get(depID).getAngajatiDepartament().get(elemID).getClientiAngajat().remove(stergereId);
-                statusClientButton.doClick();
-
-
             }
         });
         try{
