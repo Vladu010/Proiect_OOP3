@@ -91,19 +91,48 @@ public class FormService {
         inserareAngajatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Inserare ServiceP.Angajat");
-                frame.setContentPane(new FormAngajat(k).rootAngajat);
-                frame.setSize(450,200);
-                frame.setVisible(true);
-                frame.setLocationRelativeTo(null);
-                afisareAngajatiButton.doClick();
-            }
-        });
+                if(k==-1){JOptionPane.showMessageDialog(null, "Please select a department first.");}
+                else {
+                    JFrame frame = new JFrame("Inserare ServiceP.Angajat");
+                    frame.setContentPane(new FormAngajat(k).rootAngajat);
+                    frame.setSize(450, 200);
+                    frame.setVisible(true);
+                    frame.setLocationRelativeTo(null);
+                }
+        } });
             selectareAngajatButton1.addActionListener(new ActionListener() {
                 @Override
 //___________________________________________Window de afisare date ale angajatului si lista de clienti pe care ii are
                 public void actionPerformed(ActionEvent e) {
-                  //  if(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().isEmpty()){
+
+                    try {
+                        //  if(Service.getInstance().getDepartamente().get(k).getAngajatiDepartament().isEmpty()){
+                        String selectedElem = "";
+                        int selectedIndices[] = list.getSelectedIndices();
+                        int elemID = 0;
+                        for (int j = 0; j < selectedIndices.length; j++) {
+                            String elem =
+                                    (String) list.getModel().getElementAt(selectedIndices[j]);
+                            elemID = selectedIndices[j];
+                            selectedElem += "\n" + elem;
+                        }
+                        JFrame frame = new JFrame("Afisare Angajat");
+                        frame.setContentPane(new AfisareAngajat(k, elemID).afisareAngajat);
+                        frame.setSize(525, 215);
+                        frame.setVisible(true);
+                        frame.setLocationRelativeTo(null);
+                        //}
+                        //else{JOptionPane.showMessageDialog(null, "Worker invalid");}
+                    }catch(Exception exSelect)
+                    {
+                        JOptionPane.showMessageDialog(null, "Please add an employee first.");
+                    }
+
+                }});
+        stergereAngajatButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
                     String selectedElem = "";
                     int selectedIndices[] = list.getSelectedIndices();
                     int elemID = 0;
@@ -112,30 +141,13 @@ public class FormService {
                                 (String) list.getModel().getElementAt(selectedIndices[j]);
                         elemID = selectedIndices[j];
                         selectedElem += "\n" + elem;
-                    }
-                    JFrame frame = new JFrame("Afisare Angajat");
-                    frame.setContentPane(new AfisareAngajat(k, elemID).afisareAngajat);
-                    frame.setSize(525, 215);
-                    frame.setVisible(true);
-                    frame.setLocationRelativeTo(null);
-                //}
-                //else{JOptionPane.showMessageDialog(null, "Worker invalid");}
-            }});
-        stergereAngajatButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String selectedElem = "";
-                int selectedIndices[] = list.getSelectedIndices();
-                int elemID=0;
-                for (int j = 0; j < selectedIndices.length; j++) {
-                    String elem =
-                            (String) list.getModel().getElementAt(selectedIndices[j]);
-                    elemID = selectedIndices[j];
-                    selectedElem += "\n" + elem ;
 
+                    }
+                    Service.getInstance().getDepartamente().get(k).removeAngajatByIndex(elemID);
+                    afisareAngajatiButton.doClick();
+                } catch(Exception eStergere){
+                    JOptionPane.showMessageDialog(null, "Delete error!.");
                 }
-                Service.getInstance().getDepartamente().get(k).removeAngajatByIndex(elemID);
-                afisareAngajatiButton.doClick();
             }
         });
         mutaAngajatButton.addActionListener(new ActionListener() {

@@ -30,3 +30,12 @@ Prin aceasta aplicatie dorim sa usuram managementul unui service auto prin:
 - ServiceP.Angajat
 - Afisare ServiceP.Angajat
 
+# Actiuni / functii
+- functie logging
+- selectare departamente
+- introducere angajat
+- introducere clienti
+- mutare clienti
+- stergere clienti / angajati
+- introducere clienti prin baza de date MySql (XAMPP)
+
